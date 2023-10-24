@@ -1,0 +1,45 @@
+﻿<Window x:Class="EKO.MainWindow"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EKO"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800">
+    <Border Background="FloralWhite" CornerRadius="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+            <StackPanel Background="Aqua" />
+
+            <TextBlock Text="EKO"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Foreground="Black"
+                       FontSize="22"
+                       Margin="20,0,0,0"/>
+
+            <StackPanel Grid.Row="1" Background="Aqua">
+                <RadioButton Command="{Binding bdTables}"  Content="Enterprise" Checked="EnterPriseRadioButton_Checked"/>
+                <RadioButton Command="{Binding bdTables}" Content="Pollution" Checked="PollutionRadioButton_Checked_1"/>
+                <RadioButton Command="{Binding bdTables}" Content="Pollutant" Checked="PollutantRadioButton_Checked_2"/>
+                <RadioButton Command="{Binding calc}" Content="Calculator" Margin="0 10 0 0"/>
+            </StackPanel>
+
+            <TextBlock TextAlignment="Center" FontSize="22" Text="Rudenko" Width="250" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="10" Margin="5" Grid.Column="1" Background="Aqua" />
+
+            <ContentControl Grid.Column="1" Grid.Row="1" Margin="14.6,15.4,14.6,9.6" Content="{Binding CurrentView}" />
+
+
+        </Grid>
+
+    </Border>
+</Window>

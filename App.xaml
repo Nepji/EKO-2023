@@ -1,0 +1,17 @@
+﻿<Application x:Class="EKO.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:EKO"
+             xmlns:ViewModel="clr-namespace:EKO.viewmodel"
+             xmlns:view="clr-namespace:EKO.view"
+             StartupUri="view/MainWindow.xaml">
+    <Application.Resources>
+        <DataTemplate DataType="{x:Type ViewModel:BDTablesVM}">
+            <view:BDTablesView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type ViewModel:CalculatorVM}">
+            <view:CalculatorView/>
+        </DataTemplate>
+    </Application.Resources>
+</Application>
