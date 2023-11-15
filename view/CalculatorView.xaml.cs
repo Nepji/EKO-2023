@@ -25,7 +25,7 @@ namespace EKO.view
         public CalculatorView()
         {
             InitializeComponent();
-            //OUTDataGrid.Visibility = Visibility.Hidden;
+            OUTDataGrid.Visibility = Visibility.Hidden;
             CR.IsReadOnly = true;
             CRrisk.IsReadOnly = true;
             HQ.IsReadOnly = true;
@@ -74,11 +74,13 @@ namespace EKO.view
 
         private void calc_Click(object sender, RoutedEventArgs e)
         {
-            if (enterprise.SelectedIndex == -1 || pollutant.SelectedIndex == -1)
+            if (enterprise.SelectedIndex == -1 || pollutant.SelectedIndex == -1 || string.IsNullOrEmpty(EmissionBlank.Text))
             {
                 return;
             }
             OUTDataGrid.Visibility = Visibility.Visible;
+
+
         }
     }
 }

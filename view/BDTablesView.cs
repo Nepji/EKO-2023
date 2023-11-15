@@ -23,7 +23,6 @@ namespace EKO.view
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            LoadFunction();
             switch (model.DataBase.getInstance()._currentTable)
             {
                 case model.TablesNames.enterprise:
@@ -76,7 +75,6 @@ namespace EKO.view
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            LoadFunction();
             var selectedRow = BDDataGrid.SelectedItem as DataRowView;
 
             if (selectedRow != null)
@@ -184,11 +182,6 @@ namespace EKO.view
                                     insertQuery =
                                         $"INSERT INTO dangercalss (`Name`,`TaxRate`) VALUES (@column1Value, @column2Value)";
 
-                                    break;
-                                }
-                            default:
-                                {
-                                    return;
                                     break;
                                 }
                         }

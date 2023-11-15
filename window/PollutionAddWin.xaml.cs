@@ -101,7 +101,7 @@ namespace EKO.window
         private void EditModeFunction()
         {
             DeleteFunction();
-            string cmd = "INSERT INTO pollution (`Id`,`Enterprise`,`Pollutant`,`Number of Emissions`,`Year`) VALUES (@param0,@param1, @param2,@param3,@param4)";
+            string cmd = $"SET FOREIGN_KEY_CHECKS=0;INSERT INTO pollution (`Id`,`Enterprise`,`Pollutant`,`Number of Emissions`,`Year`) VALUES (@param0,@param1, @param2,@param3,@param4)";
             MySqlConnection connection = new MySqlConnection(model.DataBase.getInstance().connectionString);
             connection.Open();
             using (MySqlCommand command = new MySqlCommand(cmd, connection))

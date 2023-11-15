@@ -8,23 +8,29 @@
              d:DesignHeight="350" d:DesignWidth="650">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="102,35,0,0" TextWrapping="Wrap" Text="enterprise" VerticalAlignment="Top" Height="23" Width="64"/>
-        <TextBlock HorizontalAlignment="Left" Margin="102,63,0,0" TextWrapping="Wrap" Text="pollutant" VerticalAlignment="Top" Height="23" Width="64"/>
+        <TextBlock HorizontalAlignment="Left" Margin="106,26,0,0" TextWrapping="Wrap" Text="enterprise" VerticalAlignment="Top" Height="23" Width="64"/>
+        <TextBlock HorizontalAlignment="Left" Margin="106,54,0,0" TextWrapping="Wrap" Text="pollutant" VerticalAlignment="Top" Height="23" Width="64"/>
         <Button x:Name="calc" Content="Calc" HorizontalAlignment="Left" Margin="403,58,0,0" VerticalAlignment="Top" Width="75" Click="calc_Click"/>
         <Grid x:Name="OUTDataGrid" HorizontalAlignment="Left" Height="232" Margin="10,108,0,0" VerticalAlignment="Top" Width="630">
-            <TextBlock HorizontalAlignment="Left" Margin="36,51,0,0" TextWrapping="Wrap" Text="Концерогенний Вплив" VerticalAlignment="Top" Height="18" Width="112"/>
-            <TextBox x:Name="CR" HorizontalAlignment="Left" Height="23" Margin="36,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="112"/>
-            <TextBlock HorizontalAlignment="Left" Margin="36,123,0,0" TextWrapping="Wrap" Text="Неконцерогенний Вплив" VerticalAlignment="Top" Height="18" Width="112"/>
-            <TextBox x:Name="HQ" HorizontalAlignment="Left" Height="23" Margin="36,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="112"/>
-            <TextBlock HorizontalAlignment="Left" Margin="164,51,0,0" TextWrapping="Wrap" Text="Оцінка Ризику" VerticalAlignment="Top" Height="18" Width="112"/>
-            <TextBox x:Name="CRrisk" HorizontalAlignment="Left" Height="23" Margin="164,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="112"/>
-            <TextBlock HorizontalAlignment="Left" Margin="164,123,0,0" TextWrapping="Wrap" Text="Оцінка Ризику" VerticalAlignment="Top" Height="18" Width="112"/>
-            <TextBox x:Name="HQRisk" HorizontalAlignment="Left" Height="23" Margin="164,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="112"/>
+            <TextBlock HorizontalAlignment="Left" Margin="36,34,0,0" TextWrapping="Wrap" Text="Концерогенний Вплив" VerticalAlignment="Top" Height="18" Width="112"/>
+            <TextBox x:Name="CR" HorizontalAlignment="Left" Height="23" Margin="36,57,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="112"/>
+            <TextBlock HorizontalAlignment="Left" Margin="36,106,0,0" TextWrapping="Wrap" Text="Неконцерогенний Вплив" VerticalAlignment="Top" Height="18" Width="112"/>
+            <TextBox x:Name="HQ" HorizontalAlignment="Left" Height="23" Margin="36,129,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="112"/>
+            <TextBlock HorizontalAlignment="Left" Margin="164,34,0,0" TextWrapping="Wrap" Text="Оцінка Ризику" VerticalAlignment="Top" Height="18" Width="112"/>
+            <TextBox x:Name="CRrisk" HorizontalAlignment="Left" Height="23" Margin="164,57,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="112"/>
+            <TextBlock HorizontalAlignment="Left" Margin="164,106,0,0" TextWrapping="Wrap" Text="Оцінка Ризику" VerticalAlignment="Top" Height="18" Width="112"/>
+            <TextBox x:Name="HQRisk" HorizontalAlignment="Left" Height="23" Margin="164,129,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="112"/>
             <Button Content="Change IMG" HorizontalAlignment="Left" Margin="367,10,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.08,1.781" Click="Button_Click_1"/>
             <Image x:Name="IMG" HorizontalAlignment="Left" Height="188" Margin="289,34,0,0" VerticalAlignment="Top" Width="287" Source="/EKO;component/model/CR.png"/>
+            <TextBlock HorizontalAlignment="Left" Margin="95,-27,0,0" TextWrapping="Wrap" Text="Emmision" VerticalAlignment="Top" Height="24" Width="67" FontFamily="Segoe UI Black"/>
+            <TextBlock HorizontalAlignment="Left" Margin="36,166,0,0" TextWrapping="Wrap" Text="Налог" VerticalAlignment="Top" Height="18" Width="112"/>
+            <TextBox x:Name="HQ_Copy" HorizontalAlignment="Left" Height="23" Margin="36,190,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="112"/>
+            <TextBlock HorizontalAlignment="Left" Margin="164,166,0,0" TextWrapping="Wrap" Text="Відшкодування" VerticalAlignment="Top" Height="18" Width="112"/>
+            <TextBox x:Name="HQRisk_Copy" HorizontalAlignment="Left" Height="23" Margin="164,190,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="112"/>
         </Grid>
-        <ComboBox x:Name="enterprise" HorizontalAlignment="Left" Margin="171,35,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="pollutant" HorizontalAlignment="Left" Margin="171,63,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="enterprise" HorizontalAlignment="Left" Margin="175,26,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="pollutant" HorizontalAlignment="Left" Margin="175,54,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
+        <TextBox x:Name="EmissionBlank" HorizontalAlignment="Left" Height="23" Margin="175,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </UserControl>
