@@ -10,6 +10,8 @@ namespace EKO.model
     {
         enterprise,
         pollutant,
-        pollution
+        pollution,
+        tax,
+        dangerclass
     }
 }

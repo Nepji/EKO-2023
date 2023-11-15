@@ -35,10 +35,22 @@ namespace EKO
         {
             model.DataBase.getInstance()._currentTable = model.TablesNames.pollution;
         }
-
         private void PollutantRadioButton_Checked_2(object sender, RoutedEventArgs e)
         {
             model.DataBase.getInstance()._currentTable = model.TablesNames.pollutant;
         }
+        private void DangerClassRadioButton_Checked_2(object sender, RoutedEventArgs e)
+        {
+            model.DataBase.getInstance()._currentTable = model.TablesNames.dangerclass;
+        }
+
+        private void TaxRadioButton_Checked_3(object sender, RoutedEventArgs e)
+        {
+            model.DataBase.getInstance()._currentTable = model.TablesNames.tax;
+        }
+
+
+
+
     }
 }

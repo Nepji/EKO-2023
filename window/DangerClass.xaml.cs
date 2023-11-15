@@ -16,26 +16,25 @@ using System.Windows.Shapes;
 namespace EKO.window
 {
     /// <summary>
-    /// Interaction logic for EnterpriseEditWin.xaml
+    /// Interaction logic for DangerClass.xaml
     /// </summary>
-    public partial class EnterpriseEditWin : Window
+    public partial class DangerClass : Window
     {
         private bool EditMode = false;
         private int EditID;
-        public EnterpriseEditWin()
+        public DangerClass()
         {
             InitializeComponent();
             Delete.Visibility = Visibility.Hidden;
             EditMode = false;
         }
 
-        public EnterpriseEditWin(string[] EditValue)
+        public DangerClass(String[] EditValue)
         {
             InitializeComponent();
             EditID = int.Parse(EditValue[0]);
             Value1.Text = EditValue[1];
             Value2.Text = EditValue[2];
-            Value3.Text = EditValue[3];
             Add.Content = "Edit";
             Delete.Visibility = Visibility.Visible;
             EditMode = true;
@@ -44,7 +43,7 @@ namespace EKO.window
         private void Add_Click(object sender, RoutedEventArgs e)
         {
 
-            if (string.IsNullOrEmpty(Value1.Text) || string.IsNullOrEmpty(Value2.Text) ||string.IsNullOrEmpty(Value3.Text))
+            if (string.IsNullOrEmpty(Value1.Text) || string.IsNullOrEmpty(Value2.Text))
             {
                 Notify.Text = "All lines must be filled!";
                 return;
@@ -54,25 +53,23 @@ namespace EKO.window
                 EditModeFunction();
                 return;
             }
-            string cmd = "INSERT INTO enterprise (`Name`,`Activity`,`Region`) VALUES (@param1, @param2,@param3)";
+            string cmd = "INSERT INTO dangerclass (`Name`,`TaxRate`) VALUES (@param1, @param2)";
             MySqlConnection connection = new MySqlConnection(model.DataBase.getInstance().connectionString);
             connection.Open();
             using (MySqlCommand command = new MySqlCommand(cmd, connection))
             {
                 command.Parameters.AddWithValue("@param1", Value1.Text);
                 command.Parameters.AddWithValue("@param2", Value2.Text);
-                command.Parameters.AddWithValue("@param3", Value3.Text);
 
                 command.ExecuteNonQuery();
                 Notify.Text = "Success!";
             }
             connection.Close();
         }
-
         private void EditModeFunction()
         {
             DeleteFunction();
-            string cmd = "INSERT INTO enterprise (`Id`,`Name`,`Activity`,`Region`) VALUES (@param0,@param1, @param2,@param3)";
+            string cmd = "INSERT INTO dangerclass (`Name`,`TaxRate`) VALUES (@param1, @param2)";
             MySqlConnection connection = new MySqlConnection(model.DataBase.getInstance().connectionString);
             connection.Open();
             using (MySqlCommand command = new MySqlCommand(cmd, connection))
@@ -80,14 +77,12 @@ namespace EKO.window
                 command.Parameters.AddWithValue("@param0", EditID);
                 command.Parameters.AddWithValue("@param1", Value1.Text);
                 command.Parameters.AddWithValue("@param2", Value2.Text);
-                command.Parameters.AddWithValue("@param3", Value3.Text);
 
                 command.ExecuteNonQuery();
                 Notify.Text = "Success!";
             }
             connection.Close();
         }
-
         private void DeleteFunction()
         {
             string cmd = $"DELETE FROM {model.DataBase.getInstance()._currentTable} WHERE `Id` = {EditID};";
@@ -104,4 +99,4 @@ namespace EKO.window
             Close();
         }
     }
-    }
+}

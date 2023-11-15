@@ -23,7 +23,8 @@ namespace EKO.view
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            switch(model.DataBase.getInstance()._currentTable)
+            LoadFunction();
+            switch (model.DataBase.getInstance()._currentTable)
             {
                 case model.TablesNames.enterprise:
                         new window.EnterpriseEditWin().Show();
@@ -34,6 +35,12 @@ namespace EKO.view
                 case model.TablesNames.pollution:
                     new window.PollutionEditWin().Show();
                     break;
+                case model.TablesNames.dangerclass:
+                    new window.DangerClass().Show();
+                    break;
+                case model.TablesNames.tax:
+                    MessageBox.Show("Taxes cannot be added manually!");
+                    break;
             }
         }
 
@@ -42,11 +49,23 @@ namespace EKO.view
             LoadFunction();
         }
 
-        public void LoadFunction()
+        private void LoadFunction()
         {
             connection = new MySqlConnection(model.DataBase.getInstance().connectionString);
             connection.Open();
-            string query = "SELECT * FROM " + model.DataBase.getInstance()._currentTable;
+            string query = "";
+            if (model.DataBase.getInstance()._currentTable == model.TablesNames.pollution)
+            {
+                query = "select pollution.id, enterprise.Name as `Enterprise Name`, pollutant.Name as `Pollutant Name`, pollution.`Number of Emissions`,pollution.CR,pollution.CR_impact,pollution.HQ,pollution.HQ_impact,pollution.`Year` from enterprise Inner join pollution on enterprise.id = pollution.Enterprise INNER join pollutant on pollutant.id = pollution.Pollutant; ";
+            }
+            else if (model.DataBase.getInstance()._currentTable == model.TablesNames.tax)
+            {
+                query = "select tax.id, enterprise.Name as `Enterprise Name`, pollutant.Name as `Pollutant Name`, pollution.Year, tax.tax,tax.detriment from enterprise Inner join tax on enterprise.id = (select Enterprise from pollution where pollution.id = tax.id) INNER join pollutant on pollutant.id = (select Pollutant from pollution where pollution.id = tax.id) INNER join pollution on pollution.id = tax.id;";
+            }
+            else
+            {
+                query = "SELECT * FROM " + model.DataBase.getInstance()._currentTable;
+            }
             cmd = new MySqlCommand(query, connection);
             adapter = new MySqlDataAdapter(cmd);
             DataTable dataTable = new DataTable();
@@ -57,6 +76,7 @@ namespace EKO.view
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
+            LoadFunction();
             var selectedRow = BDDataGrid.SelectedItem as DataRowView;
 
             if (selectedRow != null)
@@ -73,6 +93,12 @@ namespace EKO.view
                         break;
                     case model.TablesNames.pollution:
                         new window.PollutionEditWin(stringValues).Show();
+                        break;
+                    case model.TablesNames.dangerclass:
+                        new window.DangerClass(stringValues).Show();
+                        break;
+                    case model.TablesNames.tax:
+                        MessageBox.Show("Taxes cannot be changed!");
                         break;
                 }
             }
@@ -100,10 +126,10 @@ namespace EKO.view
 
                     for (int row = 2; row <= worksheet.Dimension.Rows; row++)
                     {
-                        string insertQuery;
-                        string column1Value;
-                        string column2Value;
-                        string column3Value;
+                        string insertQuery = null;
+                        string column1Value = null;
+                        string column2Value = null;
+                        string column3Value = null;
                         string column4Value = null;
                         string column5Value = null;
                         switch (model.DataBase.getInstance()._currentTable)
@@ -138,7 +164,7 @@ namespace EKO.view
                                         $"INSERT INTO pollutant (`Name`,`MIn Mass Expenditure`,`Max Mass Expenditure`,`TLK`,`Danger class`) VALUES (@column1Value, @column2Value, @column3Value, @column4Value, @column5Value)";
                                     break;
                                 }
-                            default:
+                            case model.TablesNames.pollution:
                                 {
                                     column1Value = worksheet.Cells[row, 1].Text;
                                     column2Value = worksheet.Cells[row, 2].Text;
@@ -148,6 +174,21 @@ namespace EKO.view
                                     insertQuery =
                                         $"INSERT INTO pollution (`Enterprise`,`Pollutant`,`Number of Emissions`,`Year`) VALUES (@column1Value, @column2Value, @column3Value, @column4Value)";
 
+                                    break;
+                                }
+                            case model.TablesNames.dangerclass:
+                                {
+                                    column1Value = worksheet.Cells[row, 1].Text;
+                                    column2Value = worksheet.Cells[row, 2].Text.Replace(",", ".");
+
+                                    insertQuery =
+                                        $"INSERT INTO dangercalss (`Name`,`TaxRate`) VALUES (@column1Value, @column2Value)";
+
+                                    break;
+                                }
+                            default:
+                                {
+                                    return;
                                     break;
                                 }
                         }

@@ -31,7 +31,9 @@
                 <RadioButton Command="{Binding bdTables}"  Content="Enterprise" Checked="EnterPriseRadioButton_Checked"/>
                 <RadioButton Command="{Binding bdTables}" Content="Pollution" Checked="PollutionRadioButton_Checked_1"/>
                 <RadioButton Command="{Binding bdTables}" Content="Pollutant" Checked="PollutantRadioButton_Checked_2"/>
-                <RadioButton Command="{Binding calc}" Content="Calculator" Margin="0 10 0 0"/>
+                <RadioButton Command="{Binding bdTables}" Content="DangerClass" Checked="DangerClassRadioButton_Checked_2"/>
+                <RadioButton Command="{Binding bdTables}" Content="Tax" Checked="TaxRadioButton_Checked_3"/>
+                <RadioButton Command="{Binding calc}" Content="Calculator" Margin="0,10,0.4,0" Height="17"/>
             </StackPanel>
 
             <TextBlock TextAlignment="Center" FontSize="22" Text="Rudenko" Width="250" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="10" Margin="5" Grid.Column="1" Background="Aqua" />

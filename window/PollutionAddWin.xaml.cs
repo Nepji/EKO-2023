@@ -28,12 +28,12 @@ namespace EKO.window
             MySqlConnection connection = new MySqlConnection(model.DataBase.getInstance().connectionString);
             connection.Open();
 
-            string cmdtext = "select `Id`,`Name` from enterprise where Id = " + EditValue[1];
+            string cmdtext = "select `Id`,`Name` from enterprise where Id = (select Enterprise from pollution where id = " + EditValue[0] + ")";
             MySqlCommand command = new MySqlCommand(cmdtext, connection);
             MySqlDataReader reader = command.ExecuteReader();
             reader.Read();
             Value1.Text = $"{reader[0]}:{reader[1]}";
-            command.CommandText = "select `Id`,`Name` from pollutant where Id = " + EditValue[2];
+            command.CommandText = "select `Id`,`Name` from pollutant where Id = (select Pollutant from pollution where id = " + EditValue[0] + ")";
             reader.Close();
             reader = command.ExecuteReader();
             reader.Read();
