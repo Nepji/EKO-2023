@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace EKO.model
 {
@@ -13,6 +14,20 @@ namespace EKO.model
         public string connectionString = "server=localhost;uid=root;pwd=;database=eco_monitoring";
         public TablesNames _currentTable { get; set; }
         //
+
+        public bool TryInit()
+        {
+            try
+            { 
+                MySqlConnection connection = new MySqlConnection(connectionString);
+                return true;
+            }
+            catch
+            {
+                MessageBox.Show("Lost BD connection");
+                return false;
+            }
+        }
 
         private DataBase()
         {

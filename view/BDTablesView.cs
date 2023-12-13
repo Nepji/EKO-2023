@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using EKO.model;
+using Microsoft.Win32;
 using MySql.Data.MySqlClient;
 using OfficeOpenXml;
 using System.Data;
@@ -16,9 +17,13 @@ namespace EKO.view
         private MySqlDataAdapter adapter;
         public BDTablesView()
         {
-            InitializeComponent();
-            BDDataGrid.IsReadOnly = true;
-            LoadFunction();
+            if (DataBase.getInstance().TryInit())
+            {
+                InitializeComponent();
+                BDDataGrid.IsReadOnly = true;
+                LoadFunction();
+            }
+            
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -26,7 +31,7 @@ namespace EKO.view
             switch (model.DataBase.getInstance()._currentTable)
             {
                 case model.TablesNames.enterprise:
-                        new window.EnterpriseEditWin().Show();
+                    new window.EnterpriseEditWin().Show();
                     break;
                 case model.TablesNames.pollutant:
                     new window.PollutantAddWin().Show();
@@ -39,6 +44,12 @@ namespace EKO.view
                     break;
                 case model.TablesNames.tax:
                     MessageBox.Show("Taxes cannot be added manually!");
+                    break;
+                case model.TablesNames.damagescf:
+                    new window.CoefficientAddWin().Show();
+                    break;
+                case model.TablesNames.damagesave:
+                    MessageBox.Show("Saves cannot be changed!");
                     break;
             }
         }
@@ -98,6 +109,13 @@ namespace EKO.view
                     case model.TablesNames.tax:
                         MessageBox.Show("Taxes cannot be changed!");
                         break;
+                    case model.TablesNames.damagescf:
+                        new window.CoefficientAddWin(stringValues).Show();
+                        break;
+                    case model.TablesNames.damagesave:
+                            MessageBox.Show("Saves cannot be changed!");
+                        break;
+
                 }
             }
         }

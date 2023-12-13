@@ -12,6 +12,8 @@ namespace EKO.model
         pollutant,
         pollution,
         tax,
-        dangerclass
+        dangerclass,
+        damagescf,
+        damagesave
     }
 }

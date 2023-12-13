@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EKO.model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,11 +25,13 @@ namespace EKO
         {
             InitializeComponent();
             DataContext = new viewmodel.MainViewModel();
+
         }
 
         private void EnterPriseRadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            model.DataBase.getInstance()._currentTable = model.TablesNames.enterprise;
+           model.DataBase.getInstance()._currentTable = model.TablesNames.enterprise;
+       
         }
 
         private void PollutionRadioButton_Checked_1(object sender, RoutedEventArgs e)
@@ -49,8 +52,14 @@ namespace EKO
             model.DataBase.getInstance()._currentTable = model.TablesNames.tax;
         }
 
+        private void damagescf_cheaked(object sender, RoutedEventArgs e)
+        {
+            model.DataBase.getInstance()._currentTable = model.TablesNames.damagescf;
+        }
 
-
-
+        private void damagesave_cheaked(object sender, RoutedEventArgs e)
+        {
+            model.DataBase.getInstance()._currentTable = model.TablesNames.damagesave;
+        }
     }
 }

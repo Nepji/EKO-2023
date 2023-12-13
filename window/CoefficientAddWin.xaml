@@ -1,0 +1,62 @@
+﻿<Window x:Class="EKO.window.CoefficientAddWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EKO.window"
+        mc:Ignorable="d"
+        Title="EnterpriseEditWin" Height="444" Width="519.2">
+    <Grid>
+        <Button x:Name="Add" Content="Add" HorizontalAlignment="Left" Margin="403,357,0,0" VerticalAlignment="Top" Width="75" Click="Add_Click"/>
+        <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="403,381,0,0" VerticalAlignment="Top" Width="75" Click="Delete_Click"/>
+        <TextBox x:Name="Pv" HorizontalAlignment="Left" Height="23" Margin="129,25,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="24,26,0,0" TextWrapping="Wrap" Text="Р(вир)" VerticalAlignment="Top" Width="100" Height="22"/>
+        <TextBox x:Name="Kav" HorizontalAlignment="Left" Height="23" Margin="129,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="24,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Height="22"><Run Text="к-амортизації("/><Run Text="вр"/><Run Text=")"/></TextBlock>
+        <TextBox x:Name="Lvv" HorizontalAlignment="Left" Height="23" Margin="129,79,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="24,80,0,0" TextWrapping="Wrap" Text="Лв(вир)" VerticalAlignment="Top" Width="100" Height="22"/>
+        <TextBox x:Name="Pnv" HorizontalAlignment="Left" Height="23" Margin="129,106,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="24,107,0,0" TextWrapping="Wrap" Text="Р(невир)" VerticalAlignment="Top" Width="100" Height="22"/>
+        <TextBox x:Name="knv" HorizontalAlignment="Left" Height="23" Margin="129,133,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="24,134,0,0" TextWrapping="Wrap" Text="к-амортизації" VerticalAlignment="Top" Width="100" Height="22"/>
+        <TextBox x:Name="Lnv" HorizontalAlignment="Left" Height="23" Margin="129,155,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="24,156,0,0" TextWrapping="Wrap" Text="Лв(невир)" VerticalAlignment="Top" Width="100" Height="22"/>
+        <TextBox x:Name="Pcost" HorizontalAlignment="Left" Height="23" Margin="129,182,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="24,183,0,0" TextWrapping="Wrap" Text="вартість продукції" VerticalAlignment="Top" Width="100" Height="22"/>
+        <TextBox x:Name="OPT_SG" HorizontalAlignment="Left" Height="23" Margin="129,209,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="24,210,0,0" TextWrapping="Wrap" Text="опт.ціна С/Г " VerticalAlignment="Top" Width="100" Height="22"/>
+        <TextBox x:Name="SSG" HorizontalAlignment="Left" Height="23" Margin="129,236,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="24,237,0,0" TextWrapping="Wrap" Text="Sпошк С/Г культ" VerticalAlignment="Top" Width="100" Height="22"/>
+        <TextBox x:Name="kps" HorizontalAlignment="Left" Height="23" Margin="129,263,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="24,264,0,0" TextWrapping="Wrap" Text="k-пошк посівів" VerticalAlignment="Top" Width="100" Height="22"/>
+        <TextBox x:Name="OU" HorizontalAlignment="Left" Height="23" Margin="372,24,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="268,25,0,0" TextWrapping="Wrap" Text="очік урожай" VerticalAlignment="Top" Width="100" Height="22"/>
+        <TextBox x:Name="OPTcostU" HorizontalAlignment="Left" Height="23" Margin="372,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="268,52,0,0" TextWrapping="Wrap" Text="опт ціна урожаю" VerticalAlignment="Top" Width="100" Height="22"/>
+        <TextBox x:Name="vo" HorizontalAlignment="Left" Height="23" Margin="372,78,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="268,79,0,0" TextWrapping="Wrap" Text="витрати обсягу" VerticalAlignment="Top" Width="100" Height="22"/>
+        <TextBox x:Name="OCostM" HorizontalAlignment="Left" Height="23" Margin="372,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="254,106,0,0" TextWrapping="Wrap" Text="опт ціна матеріалів" VerticalAlignment="Top" Width="114" Height="22"/>
+        <TextBox x:Name="OMLost" HorizontalAlignment="Left" Height="23" Margin="372,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="254,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114" Height="22"><Run Text="обсяг вт."/><Run Text="матеріалів"/></TextBlock>
+        <TextBox x:Name="KVPP" HorizontalAlignment="Left" Height="23" Margin="372,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="254,155,0,0" TextWrapping="Wrap" Text="к-сть втрач прод" VerticalAlignment="Top" Width="114" Height="22"/>
+        <TextBox x:Name="SCostVM" HorizontalAlignment="Left" Height="23" Margin="372,181,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="254,182,0,0" TextWrapping="Wrap" Text="баланс втрач майна" VerticalAlignment="Top" Width="114" Height="22"/>
+        <TextBox x:Name="KAM" HorizontalAlignment="Left" Height="23" Margin="372,208,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="268,209,0,0" TextWrapping="Wrap" Text="К-А майна" VerticalAlignment="Top" Width="100" Height="22"/>
+        <TextBox x:Name="IZC" HorizontalAlignment="Left" Height="23" Margin="372,235,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="268,236,0,0" TextWrapping="Wrap" Text="індекс зміни цін" VerticalAlignment="Top" Width="100" Height="22"/>
+        <TextBox x:Name="kLostM" HorizontalAlignment="Left" Height="23" Margin="372,262,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="268,263,0,0" TextWrapping="Wrap" Text="к-сть втрач майна" VerticalAlignment="Top" Width="100" Height="22"/>
+        <TextBox x:Name="Name" HorizontalAlignment="Left" Height="23" Margin="373,318,0,0" TextWrapping="Wrap" Text="Default" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="kps_Copy" HorizontalAlignment="Left" Margin="268,318,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="94" Height="22"/>
+        <TextBox x:Name="nzs" HorizontalAlignment="Left" Height="23" Margin="129,290,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="kps_Copy1" HorizontalAlignment="Left" Margin="24,291,0,0" TextWrapping="Wrap" Text="норматив збитків" VerticalAlignment="Top" Width="100" Height="22"/>
+        <TextBox x:Name="kfpl" HorizontalAlignment="Left" Height="23" Margin="373,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="kps_Copy2" HorizontalAlignment="Left" Margin="268,290,0,0" TextWrapping="Wrap" Text="k-пошк посівів" VerticalAlignment="Top" Width="100" Height="22"/>
+        <TextBox x:Name="kfpu" HorizontalAlignment="Left" Height="23" Margin="129,317,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="kps_Copy3" HorizontalAlignment="Left" Margin="10,318,0,0" TextWrapping="Wrap" Text="к-ф зн. пр. угіддя" VerticalAlignment="Top" Width="114" Height="22"/>
+
+    </Grid>
+</Window>

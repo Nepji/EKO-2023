@@ -6,31 +6,61 @@
              xmlns:local="clr-namespace:EKO.view"
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="650">
-    <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="106,26,0,0" TextWrapping="Wrap" Text="enterprise" VerticalAlignment="Top" Height="23" Width="64"/>
-        <TextBlock HorizontalAlignment="Left" Margin="106,54,0,0" TextWrapping="Wrap" Text="pollutant" VerticalAlignment="Top" Height="23" Width="64"/>
-        <Button x:Name="calc" Content="Calc" HorizontalAlignment="Left" Margin="403,58,0,0" VerticalAlignment="Top" Width="75" Click="calc_Click"/>
-        <Grid x:Name="OUTDataGrid" HorizontalAlignment="Left" Height="232" Margin="10,108,0,0" VerticalAlignment="Top" Width="630">
-            <TextBlock HorizontalAlignment="Left" Margin="36,34,0,0" TextWrapping="Wrap" Text="Концерогенний Вплив" VerticalAlignment="Top" Height="18" Width="112"/>
-            <TextBox x:Name="CR" HorizontalAlignment="Left" Height="23" Margin="36,57,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="112"/>
-            <TextBlock HorizontalAlignment="Left" Margin="36,106,0,0" TextWrapping="Wrap" Text="Неконцерогенний Вплив" VerticalAlignment="Top" Height="18" Width="112"/>
-            <TextBox x:Name="HQ" HorizontalAlignment="Left" Height="23" Margin="36,129,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="112"/>
-            <TextBlock HorizontalAlignment="Left" Margin="164,34,0,0" TextWrapping="Wrap" Text="Оцінка Ризику" VerticalAlignment="Top" Height="18" Width="112"/>
-            <TextBox x:Name="CRrisk" HorizontalAlignment="Left" Height="23" Margin="164,57,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="112"/>
-            <TextBlock HorizontalAlignment="Left" Margin="164,106,0,0" TextWrapping="Wrap" Text="Оцінка Ризику" VerticalAlignment="Top" Height="18" Width="112"/>
-            <TextBox x:Name="HQRisk" HorizontalAlignment="Left" Height="23" Margin="164,129,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="112"/>
-            <Button Content="Change IMG" HorizontalAlignment="Left" Margin="367,10,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.08,1.781" Click="Button_Click_1"/>
-            <Image x:Name="IMG" HorizontalAlignment="Left" Height="188" Margin="289,34,0,0" VerticalAlignment="Top" Width="287" Source="/EKO;component/model/CR.png"/>
-            <TextBlock HorizontalAlignment="Left" Margin="95,-27,0,0" TextWrapping="Wrap" Text="Emmision" VerticalAlignment="Top" Height="24" Width="67" FontFamily="Segoe UI Black"/>
-            <TextBlock HorizontalAlignment="Left" Margin="36,166,0,0" TextWrapping="Wrap" Text="Налог" VerticalAlignment="Top" Height="18" Width="112"/>
-            <TextBox x:Name="HQ_Copy" HorizontalAlignment="Left" Height="23" Margin="36,190,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="112"/>
-            <TextBlock HorizontalAlignment="Left" Margin="164,166,0,0" TextWrapping="Wrap" Text="Відшкодування" VerticalAlignment="Top" Height="18" Width="112"/>
-            <TextBox x:Name="HQRisk_Copy" HorizontalAlignment="Left" Height="23" Margin="164,190,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="112"/>
+    <Grid x:Name="coefficients1" Margin="0,0,-0.4,-59.6">
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Оцінка Збитків" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="12,262,0,0" TextWrapping="Wrap" Text="Enterprise" VerticalAlignment="Top" Height="23" Width="94" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.242"/>
+                    <RotateTransform Angle="0.974"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <Button x:Name="calc" Content="Calc" HorizontalAlignment="Left" Margin="208,319,0,0" VerticalAlignment="Top" Width="75" Click="calc_Click"/>
+        <ComboBox x:Name="enterprise" HorizontalAlignment="Left" Margin="112,262,0,0" VerticalAlignment="Top" Width="171"/>
+        <TextBlock HorizontalAlignment="Left" Margin="12,290,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="95" RenderTransformOrigin="0.5,0.5"><Run Text="Coefficients priset"/><LineBreak/><Run/></TextBlock>
+        <ComboBox x:Name="coefficients" HorizontalAlignment="Left" Margin="112,289,0,0" VerticalAlignment="Top" Width="111"/>
+        <Button x:Name="AddCFButton" Content="Add" HorizontalAlignment="Left" Margin="228,289,0,0" VerticalAlignment="Top" Width="55" RenderTransformOrigin="-0.757,-1.604" Height="22" Click="AddCFButton_Click"/>
+        <Grid HorizontalAlignment="Left" Height="205" Margin="10,47,0,0" VerticalAlignment="Top" Width="630">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="11*"/>
+                <ColumnDefinition Width="199*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock HorizontalAlignment="Left" Margin="10,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="131" Grid.ColumnSpan="2"><Run Text="К"/><Run Text="-сть "/><Run Text="Поранених (Лег.)"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="10,46,0,0" TextWrapping="Wrap" Text="К-сть Поранених (тяж)" VerticalAlignment="Top" Height="22" Width="131" Grid.ColumnSpan="2"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,83,0,0" TextWrapping="Wrap" Text="К-сть Поранених (інв)" VerticalAlignment="Top" Height="22" Width="131" Grid.ColumnSpan="2"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,119,0,0" TextWrapping="Wrap" Text="К-сть загиблих" VerticalAlignment="Top" Height="23" Width="131" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="kpl" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="113.2,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="kph" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="113.2,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="kpi" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="113.2,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="kd" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="113.2,119,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBlock HorizontalAlignment="Left" Margin="248.2,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="158" Grid.Column="1"><Run Text="К-сть"/><Run Text=" руйн. виробн. призн."/><Run Text=" "/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="248.2,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="158" Grid.Column="1"><Run Text="К-сть руйн. невироб. призн"/><LineBreak/><Run/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="248.2,82,0,0" TextWrapping="Wrap" Text="К-сть втрат пром.продукції" VerticalAlignment="Top" Height="22" Width="158" Grid.Column="1"/>
+            <TextBlock HorizontalAlignment="Left" Margin="248.2,119,0,0" TextWrapping="Wrap" Text="К-сть втрат сільс. прод" VerticalAlignment="Top" Height="23" Width="158" Grid.Column="1"/>
+            <TextBox x:Name="krvp" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="412.2,9,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="krnvp" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="412.2,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="kvpp" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="412.2,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="kvsp" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="412.2,119,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,174,0,0" TextWrapping="Wrap" Text="Площа вил. С/Г угідь" VerticalAlignment="Top" Height="23" Width="131" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="ssg" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="113.2,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBlock HorizontalAlignment="Left" Margin="248.2,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="158" Grid.Column="1"><Run Text="Площа вил. Лісних "/><Run Text="Д"/><Run Text="ілян"/><Run Text="ян"/><Run Text="к"/></TextBlock>
+            <TextBox x:Name="sld" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="412.2,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         </Grid>
-        <ComboBox x:Name="enterprise" HorizontalAlignment="Left" Margin="175,26,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="pollutant" HorizontalAlignment="Left" Margin="175,54,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
-        <TextBox x:Name="EmissionBlank" HorizontalAlignment="Left" Height="23" Margin="175,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="319,262,0,0" TextWrapping="Wrap" Text="Результати:" VerticalAlignment="Top" Height="22" Width="131"/>
+        <TextBox x:Name="Mp" HorizontalAlignment="Left" Height="23" Margin="351,311,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="39"/>
+        <TextBox x:Name="Hp" HorizontalAlignment="Left" Height="23" Margin="395,311,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="39"/>
+        <TextBox x:Name="Рс_г" HorizontalAlignment="Left" Height="23" Margin="439,311,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="39" RenderTransformOrigin="2.969,0.626"/>
+        <TextBox x:Name="Рл_г" HorizontalAlignment="Left" Height="23" Margin="483,311,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="39"/>
+        <TextBox x:Name="total" HorizontalAlignment="Left" Height="23" Margin="527,311,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="39" RenderTransformOrigin="3.626,0.557"/>
+        <TextBlock HorizontalAlignment="Left" Margin="351,290,0,0" TextWrapping="Wrap" Text="Мр" VerticalAlignment="Top" Width="39"/>
+        <TextBlock HorizontalAlignment="Left" Margin="395,290,0,0" TextWrapping="Wrap" Text="Нр" VerticalAlignment="Top" Width="39"/>
+        <TextBlock HorizontalAlignment="Left" Margin="439,290,0,0" TextWrapping="Wrap" Text="Рс/г" VerticalAlignment="Top" Width="39"/>
+        <TextBlock HorizontalAlignment="Left" Margin="483,289,0,0" TextWrapping="Wrap" Text="Рл/г" VerticalAlignment="Top" Width="39"/>
+        <TextBlock HorizontalAlignment="Left" Margin="527,290,0,0" TextWrapping="Wrap" Text="загал." VerticalAlignment="Top" Width="39"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="112,319,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
     </Grid>
 </UserControl>
